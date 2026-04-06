@@ -5,6 +5,7 @@ const ImageWrapper = styled.div`
   height: 400px;
   overflow: hidden;
   border-radius: 40px;
+  anchor-name: --card;
 `;
 
 const Image = styled.img`
@@ -13,6 +14,9 @@ const Image = styled.img`
   object-fit: cover;
 `;
 const Title = styled.div`
+  position: fixed;
+  position-anchor: --card;
+  position-area: block-start;
   background: white;
   color: black;
   font-weight: bold;
