@@ -16,7 +16,7 @@ const Card = styled.div`
 `;
 
 const ImageWrapper = styled.div`
-  position: relative;
+  anchor-scope: --product-image;
   height: 180px;
   overflow: hidden;
 `;
@@ -25,12 +25,14 @@ const ProductImage = styled.img`
   width: 100%;
   height: 100%;
   object-fit: cover;
+  anchor-name: --product-image;
 `;
 
 const FeaturedTag = styled.span`
   position: absolute;
-  top: 12px;
-  left: 12px;
+  position-anchor: --product-image;
+  top: calc(anchor(top) + 12px);
+  left: calc(anchor(left) + 8px);
   background: #ff4d4f;
   color: #fff;
   padding: 4px 10px;
