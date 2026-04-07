@@ -8,7 +8,19 @@ const Wrapper = styled.nav`
   background: hsl(0 0% 0% / 0.8);
   padding: 8px;
   border-radius: 8px;
-  position: relative;
+  anchor-name: --hovered-link;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: calc(anchor(bottom) - 8px);
+    left: calc(anchor(left) + 1rem);
+    right: calc(anchor(right) + 1rem);
+    bottom: calc(anchor(bottom) + 5px);
+    background: steelblue;
+    position-anchor: --hovered-link;
+    transition: 300ms;
+  }
 
   @supports (corner-shape: squircle) {
     border-radius: 24px;
@@ -21,7 +33,11 @@ const NavList = styled.ul`
   list-style: none;
   display: flex;
 `;
-const Nav = styled.li``;
+const Nav = styled.li`
+  &:hover {
+    anchor-name: --hovered-link;
+  }
+`;
 const NavItem = styled.a`
   display: block;
   padding: 1rem;
