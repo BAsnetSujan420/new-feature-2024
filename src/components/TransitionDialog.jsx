@@ -19,6 +19,17 @@ const Dialog = styled.dialog`
     transform: translateY(0);
   }
 
+  @starting-style {
+    &[open] {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+
+    &[open]::backdrop {
+      opacity: 0;
+    }
+  }
+
   &::backdrop {
     background: black;
     opacity: 0;
@@ -78,7 +89,7 @@ export default function TransitionDialog() {
   return (
     <div id="center">
       <OpenButton onClick={() => ref.current?.showModal()}>
-        Open Dailog
+        Open Dialog
       </OpenButton>
 
       <Dialog ref={ref}>
